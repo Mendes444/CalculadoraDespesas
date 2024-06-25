@@ -38,6 +38,8 @@ fun FinanceCalculator() {
     var income by remember { mutableStateOf(TextFieldValue("")) }
     var expenses by remember { mutableStateOf(TextFieldValue("")) }
     var result by remember { mutableStateOf("") }
+    var selectedCurrency by remember { mutableStateOf("€") }
+    val currencies = listOf("€", "$", "R|$")
 
     Column(
         modifier = Modifier
@@ -46,6 +48,27 @@ fun FinanceCalculator() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // Seleção de Moeda
+        var expandedCurrency by remember { mutableStateOf(false) }
+        Box {
+            OutlinedButton(onClick = { expandedCurrency = true }) {
+                Text("Moeda: $selectedCurrency")
+            }
+            DropdownMenu(
+                expanded = expandedCurrency,
+                onDismissRequest = { expandedCurrency = false }
+            ) {
+                currencies.forEach { currency ->
+                    DropdownMenuItem(
+                        text = { Text(currency) },
+                        onClick = {
+                            selectedCurrency = currency
+                            expandedCurrency = false
+                        }
+                    )
+                }
+            }
+        }
         Spacer(modifier = Modifier.height(16.dp))
 
         // Campo de texto para ganhos
