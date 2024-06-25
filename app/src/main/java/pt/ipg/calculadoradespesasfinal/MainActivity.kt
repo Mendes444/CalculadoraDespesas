@@ -1,5 +1,6 @@
 package pt.ipg.calculadoradespesasfinal
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,6 +19,7 @@ import pt.ipg.calculadoradespesasfinal.ui.theme.CalculadoraDespesasFinalTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         setContent {
             CalculadoraDespesasFinalTheme {
                 Surface(
