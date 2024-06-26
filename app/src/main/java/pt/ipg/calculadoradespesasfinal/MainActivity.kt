@@ -103,9 +103,9 @@ fun FinanceCalculator() {
                 } else {
                     val balance = incomeValue - expensesValue
                     result = when {
-                        balance > 0 -> "Bom trabalho!Estás a economizar bom dinheiro! Saldo: $balance"
-                        balance < 0 -> "Que pena! Estás em dividas. Tenta reduzir as tuas despesas. Saldo: $balance"
-                        else -> "Não sobrou dinheiro nenhum este mês. Tenta economizar uma parte do que ganhas. Saldo: $balance"
+                        balance > 0 -> "Bom trabalho!Estás a economizar bom dinheiro! Saldo: $balance$selectedCurrency"
+                        balance < 0 -> "Que pena! Estás em dividas. Tenta reduzir as tuas despesas. Saldo: $balance$selectedCurrency"
+                        else -> "Não sobrou dinheiro nenhum este mês. Tenta economizar uma parte do que ganhas. Saldo: $balance$selectedCurrency"
                     }
                 }
             },
